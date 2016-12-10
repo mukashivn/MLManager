@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 
@@ -12,7 +13,6 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.simplelist.MaterialSimpleListAdapter;
 import com.afollestad.materialdialogs.simplelist.MaterialSimpleListItem;
-import com.gc.materialdesign.widgets.SnackBar;
 import com.javiersantos.mlmanager.AppInfo;
 import com.javiersantos.mlmanager.MLManagerApplication;
 import com.javiersantos.mlmanager.R;
@@ -68,12 +68,20 @@ public class UtilsDialog {
      * @param style 1 for extracted APKs, 2 display without button and 3 for hidden apps
      * @return Snackbar to show
      */
-    public static SnackBar showSnackbar(Activity activity, String text, @Nullable String buttonText, @Nullable final File file, Integer style) {
-        SnackBar snackBar;
+    public static Snackbar showSnackbar(Activity activity, String text, @Nullable String buttonText, @Nullable final File file, Integer style) {
+        Snackbar snackBar;
 
         switch (style) {
             case 1:
-                snackBar = new SnackBar(activity, text, buttonText, new View.OnClickListener() {
+                /*snackBar = new Snackbar(activity, text, buttonText, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        file.delete();
+                    }
+                });
+                */
+                snackBar = Snackbar.make(activity.getCurrentFocus(),text,Snackbar.LENGTH_LONG)
+                .setAction(buttonText, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         file.delete();
@@ -81,18 +89,29 @@ public class UtilsDialog {
                 });
                 break;
             case 2:
-                snackBar = new SnackBar(activity, text, null, null);
+                //snackBar = new Snackbar(activity, text, null, null);
+                snackBar = Snackbar.make(activity.getCurrentFocus(),text,Snackbar.LENGTH_LONG);
                 break;
             case 3:
-                snackBar = new SnackBar(activity, text, buttonText, new View.OnClickListener() {
+                /*
+                snackBar = new Snackbar(activity, text, buttonText, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         UtilsRoot.rebootSystem();
                     }
                 });
+                */
+                snackBar = Snackbar.make(activity.getCurrentFocus(),text,Snackbar.LENGTH_LONG)
+                    .setAction(buttonText, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            UtilsRoot.rebootSystem();
+                        }
+                    });
                 break;
             default:
-                snackBar = new SnackBar(activity, text, null, null);
+               // snackBar = new Snackbar(activity, text, null, null);
+                snackBar = Snackbar.make(activity.getCurrentFocus(),text,Snackbar.LENGTH_LONG);
                 break;
         }
 

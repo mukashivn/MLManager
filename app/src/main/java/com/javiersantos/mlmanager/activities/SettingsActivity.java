@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.javiersantos.mlmanager.MLManagerApplication;
@@ -145,11 +146,13 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
         ViewGroup contentView = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.activity_settings, new LinearLayout(this), false);
         toolbar = (Toolbar) contentView.findViewById(R.id.toolbar);
         //TODO Toolbar should load the default style in XML (white title and back arrow), but doesn't happen
-        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        toolbar.setTitle(null);
+
+        ImageView imageView = (ImageView)toolbar.findViewById(R.id.content_hamburger);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                finish();
             }
         });
 
@@ -160,7 +163,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
     }
 
     private void setInitialConfiguration() {
-        toolbar.setTitle(getResources().getString(R.string.action_settings));
+       // toolbar.setTitle(getResources().getString(R.string.action_settings));
 
         // Android 5.0+ devices
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

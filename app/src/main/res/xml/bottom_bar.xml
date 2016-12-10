@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        icon="@drawable/ic_tab_install"
+        id="@+id/tab_install_app"
+        title="@string/action_apps"/>
+    <tab
+        icon="@drawable/ic_tab_system"
+        id="@+id/tab_system_app"
+        title="@string/action_system_apps"/>
+    <tab
+        icon="@drawable/ic_tab_favorite"
+        id="@+id/tab_favorites"
+        title="@string/action_favorites"/>
+    <tab
+        icon="@drawable/ic_tab_hidden"
+        id="@+id/tab_hidden_app"
+        title="@string/action_hidden_apps"/>
+    <tab
+        icon="@drawable/ic_menu"
+        id="@+id/tab_setting"
+        title="Setting"/>
+</tabs>

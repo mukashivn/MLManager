@@ -12,18 +12,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.gc.materialdesign.views.ButtonFlat;
 import com.javiersantos.mlmanager.MLManagerApplication;
 import com.javiersantos.mlmanager.activities.AppActivity;
 import com.javiersantos.mlmanager.AppInfo;
 import com.javiersantos.mlmanager.R;
-import com.javiersantos.mlmanager.activities.MainActivity;
+import com.javiersantos.mlmanager.activities.HomeActivity;
 import com.javiersantos.mlmanager.async.ExtractFileInBackground;
 import com.javiersantos.mlmanager.utils.AppPreferences;
 import com.javiersantos.mlmanager.utils.UtilsApp;
@@ -69,13 +69,13 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> i
     }
 
     private void setButtonEvents(AppViewHolder appViewHolder, final AppInfo appInfo) {
-        ButtonFlat appExtract = appViewHolder.vExtract;
-        ButtonFlat appShare = appViewHolder.vShare;
+        Button appExtract = appViewHolder.vExtract;
+        Button appShare = appViewHolder.vShare;
         final ImageView appIcon = appViewHolder.vIcon;
         final CardView cardView = appViewHolder.vCard;
 
-        appExtract.setBackgroundColor(appPreferences.getPrimaryColorPref());
-        appShare.setBackgroundColor(appPreferences.getPrimaryColorPref());
+        //appExtract.setBackgroundColor(appPreferences.getPrimaryColorPref());
+        //appShare.setBackgroundColor(appPreferences.getPrimaryColorPref());
 
         appExtract.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,11 +149,6 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> i
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                if (filterResults.count > 0) {
-                    MainActivity.setResultsMessage(false);
-                } else {
-                    MainActivity.setResultsMessage(true);
-                }
                 appList = (ArrayList<AppInfo>) filterResults.values;
                 notifyDataSetChanged();
             }
@@ -170,8 +165,8 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> i
         protected TextView vName;
         protected TextView vApk;
         protected ImageView vIcon;
-        protected ButtonFlat vExtract;
-        protected ButtonFlat vShare;
+        protected Button vExtract;
+        protected Button vShare;
         protected CardView vCard;
 
         public AppViewHolder(View v) {
@@ -179,8 +174,8 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppViewHolder> i
             vName = (TextView) v.findViewById(R.id.txtName);
             vApk = (TextView) v.findViewById(R.id.txtApk);
             vIcon = (ImageView) v.findViewById(R.id.imgIcon);
-            vExtract = (ButtonFlat) v.findViewById(R.id.btnExtract);
-            vShare = (ButtonFlat) v.findViewById(R.id.btnShare);
+            vExtract = (Button) v.findViewById(R.id.btnExtract);
+            vShare = (Button) v.findViewById(R.id.btnShare);
             vCard = (CardView) v.findViewById(R.id.app_card);
 
         }
