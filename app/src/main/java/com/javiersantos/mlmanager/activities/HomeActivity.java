@@ -23,6 +23,8 @@ import android.widget.FrameLayout;
 
 import com.javiersantos.mlmanager.R;
 import com.javiersantos.mlmanager.adapters.AppAdapter;
+import com.javiersantos.mlmanager.fragment.FavouriteAppFragment;
+import com.javiersantos.mlmanager.fragment.HiddenAppFragment;
 import com.javiersantos.mlmanager.fragment.InstalledAppFragment;
 import com.javiersantos.mlmanager.fragment.SystemAppFragment;
 import com.javiersantos.mlmanager.utils.UtilsApp;
@@ -103,7 +105,7 @@ public class HomeActivity extends AppCompatActivity implements SearchView.OnQuer
   }
   private void resetSearchView(){
     if (searchView != null){
-      searchView.setQuery("",false);
+      searchView.setQuery("",true);
       searchView.clearFocus();
     }
   }
@@ -111,6 +113,7 @@ public class HomeActivity extends AppCompatActivity implements SearchView.OnQuer
     mCurrentTab = tabId;
     //Reset search view when change tab
     resetSearchView();
+    showOrHideSearch(tabId);
 
     switch (tabId){
       case R.id.tab_system_app:
@@ -120,11 +123,35 @@ public class HomeActivity extends AppCompatActivity implements SearchView.OnQuer
         gotoSettingAc();
         break;
       case R.id.tab_favorites:
+        showFragment(tabId);
         break;
       case R.id.tab_hidden_app:
+        showFragment(tabId);
         break;
       case R.id.tab_install_app:
         showFragment(tabId);
+        break;
+    }
+  }
+
+  private void hideOrShowSearch(boolean isShow){
+    if(searchItem != null)
+      searchItem.setVisible(isShow);
+  }
+
+  private void showOrHideSearch(int tabId){
+    switch (tabId){
+      case R.id.tab_favorites:
+        hideOrShowSearch(false);
+        break;
+      case R.id.tab_hidden_app:
+        hideOrShowSearch(false);
+        break;
+      case R.id.tab_install_app:
+        hideOrShowSearch(true);
+        break;
+      case R.id.tab_system_app:
+        hideOrShowSearch(true);
         break;
     }
   }
@@ -220,9 +247,10 @@ public class HomeActivity extends AppCompatActivity implements SearchView.OnQuer
     Fragment fragment = null;
     switch (fragmentId){
       case R.id.tab_favorites:
-
+        fragment = FavouriteAppFragment.newInstance();
         break;
       case R.id.tab_hidden_app:
+        fragment = HiddenAppFragment.newInstance();
         break;
       case R.id.tab_install_app:
         fragment = InstalledAppFragment.newInstance();

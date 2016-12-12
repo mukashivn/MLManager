@@ -292,7 +292,7 @@ public class AppActivity extends AppCompatActivity {
         if (requestCode == UNINSTALL_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 Log.i("App", "OK");
-                Intent intent = new Intent(context, MainActivity.class);
+                Intent intent = new Intent(context, HomeActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 finish();
                 startActivity(intent);

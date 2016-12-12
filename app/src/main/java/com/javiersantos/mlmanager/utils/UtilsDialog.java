@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -70,17 +71,12 @@ public class UtilsDialog {
      */
     public static Snackbar showSnackbar(Activity activity, String text, @Nullable String buttonText, @Nullable final File file, Integer style) {
         Snackbar snackBar;
+        final ViewGroup viewGroup = (ViewGroup) ((ViewGroup) activity
+            .findViewById(android.R.id.content)).getChildAt(0);
 
         switch (style) {
             case 1:
-                /*snackBar = new Snackbar(activity, text, buttonText, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        file.delete();
-                    }
-                });
-                */
-                snackBar = Snackbar.make(activity.getCurrentFocus(),text,Snackbar.LENGTH_LONG)
+                snackBar = Snackbar.make(viewGroup,text,Snackbar.LENGTH_LONG)
                 .setAction(buttonText, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -89,19 +85,10 @@ public class UtilsDialog {
                 });
                 break;
             case 2:
-                //snackBar = new Snackbar(activity, text, null, null);
-                snackBar = Snackbar.make(activity.getCurrentFocus(),text,Snackbar.LENGTH_LONG);
+                snackBar = Snackbar.make(viewGroup,text,Snackbar.LENGTH_LONG);
                 break;
             case 3:
-                /*
-                snackBar = new Snackbar(activity, text, buttonText, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        UtilsRoot.rebootSystem();
-                    }
-                });
-                */
-                snackBar = Snackbar.make(activity.getCurrentFocus(),text,Snackbar.LENGTH_LONG)
+                snackBar = Snackbar.make(viewGroup,text,Snackbar.LENGTH_LONG)
                     .setAction(buttonText, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -110,8 +97,7 @@ public class UtilsDialog {
                     });
                 break;
             default:
-               // snackBar = new Snackbar(activity, text, null, null);
-                snackBar = Snackbar.make(activity.getCurrentFocus(),text,Snackbar.LENGTH_LONG);
+                snackBar = Snackbar.make(viewGroup,text,Snackbar.LENGTH_LONG);
                 break;
         }
 

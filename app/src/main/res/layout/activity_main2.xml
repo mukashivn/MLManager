@@ -6,8 +6,9 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="16dp"
-    tools:context="com.javiersantos.mlmanager.activities.HomeActivity">
+    tools:context="com.javiersantos.mlmanager.activities.HomeActivity"
+    android:fitsSystemWindows="true"
+>
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

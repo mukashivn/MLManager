@@ -23,7 +23,6 @@ import com.javiersantos.mlmanager.MLManagerApplication;
 import com.javiersantos.mlmanager.activities.AppActivity;
 import com.javiersantos.mlmanager.AppInfo;
 import com.javiersantos.mlmanager.R;
-import com.javiersantos.mlmanager.activities.HomeActivity;
 import com.javiersantos.mlmanager.async.ExtractFileInBackground;
 import com.javiersantos.mlmanager.utils.AppPreferences;
 import com.javiersantos.mlmanager.utils.UtilsApp;
