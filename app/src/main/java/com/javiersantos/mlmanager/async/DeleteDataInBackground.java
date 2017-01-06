@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.javiersantos.mlmanager.MLManagerApplication;
 import com.javiersantos.mlmanager.R;
 import com.javiersantos.mlmanager.utils.UtilsApp;
 import com.javiersantos.mlmanager.utils.UtilsDialog;
@@ -40,6 +41,7 @@ public class DeleteDataInBackground extends AsyncTask<Void, String, Boolean> {
     protected void onPostExecute(Boolean status) {
         super.onPostExecute(status);
         dialog.dismiss();
+        MLManagerApplication.getInstance().showFullAds();
         if (status) {
             UtilsDialog.showSnackbar(activity, successDescription, null, null, 2).show();
         } else {

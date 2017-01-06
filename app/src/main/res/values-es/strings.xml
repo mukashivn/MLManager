@@ -28,7 +28,7 @@
     <string name="dialog_saved">APK \"%s\" guardado</string>
     <string name="dialog_saved_description">El APK \"%1$s\" ha sido guardado en la carpeta \"MLManager\" con nombre: %2$s</string>
     <string name="dialog_saving">Guardando APK %s&#8230;</string>
-    <string name="dialog_saving_description">ML Manager está guardando el APK en la carpeta \"MLManager\".</string>
+    <string name="dialog_saving_description">APK Manager Pro está guardando el APK en la carpeta \"MLManager\".</string>
     <string name="dialog_about">Sobre %s</string>
     <string name="dialog_about_description">Desarrollado por Javier Santos.\n\nOpen Source bajo licencia GPLv3.</string>
     <string name="dialog_run">Iniciar</string>
@@ -40,7 +40,7 @@
     <string name="dialog_uninstall">Desinstalar</string>
     <string name="dialog_uninstall_description">Desinstalar esta app ahora</string>
     <string name="dialog_uninstalling">Desinstalando APK %s&#8230;</string>
-    <string name="dialog_uninstalling_description">ML Manager está desinstalando esta app. Por favor espera.</string>
+    <string name="dialog_uninstalling_description">APK Manager Pro está desinstalando esta app. Por favor espera.</string>
     <string name="dialog_cache">Eliminar caché</string>
     <string name="dialog_cache_description">Eliminar la caché para esta app</string>
     <string name="dialog_cache_success">Caché eliminada</string>
@@ -54,7 +54,7 @@
     <string name="dialog_clear_data_success">Datos eliminados</string>
     <string name="dialog_clear_data_success_description">Todos los datos de %s han sido eliminados</string>
     <string name="dialog_root_required">Acceso Root necesario</string>
-    <string name="dialog_root_required_description">Para eliminar datos del dispositivo necesitas root con los permisos dados. Si has rechazado el acceso una vez: dirígete a la app SuperUser para dar acceso a ML Manager.</string>
+    <string name="dialog_root_required_description">Para eliminar datos del dispositivo necesitas root con los permisos dados. Si has rechazado el acceso una vez: dirígete a la app SuperUser para dar acceso a APK Manager Pro.</string>
     <string name="dialog_reboot">Es necesario reiniciar para mostrar los cambios. ¿Quieres reiniciar ahora?</string>
     <string name="dialog_cannot_open">%s no puede iniciarse porque está oculto. Intenta mostrarla antes de abrir la aplicación.</string>
     <string name="dialog_uninstall_root">¿Seguro que quieres desinstalar?</string>

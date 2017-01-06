@@ -25,12 +25,14 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.google.android.gms.ads.NativeExpressAdView;
 import com.javiersantos.mlmanager.AppInfo;
 import com.javiersantos.mlmanager.MLManagerApplication;
 import com.javiersantos.mlmanager.R;
 import com.javiersantos.mlmanager.async.DeleteDataInBackground;
 import com.javiersantos.mlmanager.async.ExtractFileInBackground;
 import com.javiersantos.mlmanager.async.UninstallInBackground;
+import com.javiersantos.mlmanager.utils.AdsUtils;
 import com.javiersantos.mlmanager.utils.AppPreferences;
 import com.javiersantos.mlmanager.utils.UtilsRoot;
 import com.javiersantos.mlmanager.utils.UtilsApp;
@@ -56,6 +58,8 @@ public class AppActivity extends AppCompatActivity {
 
     // UI variables
     private FloatingActionsMenu fab;
+    //Native ads
+    NativeExpressAdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +72,10 @@ public class AppActivity extends AppCompatActivity {
         getInitialConfiguration();
         setInitialConfiguration();
         setScreenElements();
+
+        //Find ads
+        adView = (NativeExpressAdView)findViewById(R.id.adView);
+        AdsUtils.loadNativeAds(adView);
 
     }
 
@@ -291,6 +299,7 @@ public class AppActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == UNINSTALL_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
+                MLManagerApplication.getInstance().showFullAds();
                 Log.i("App", "OK");
                 Intent intent = new Intent(context, HomeActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

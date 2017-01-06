@@ -21,14 +21,17 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 
+import com.google.android.gms.ads.NativeExpressAdView;
 import com.javiersantos.mlmanager.R;
 import com.javiersantos.mlmanager.adapters.AppAdapter;
 import com.javiersantos.mlmanager.fragment.FavouriteAppFragment;
 import com.javiersantos.mlmanager.fragment.HiddenAppFragment;
 import com.javiersantos.mlmanager.fragment.InstalledAppFragment;
 import com.javiersantos.mlmanager.fragment.SystemAppFragment;
+import com.javiersantos.mlmanager.utils.AdsUtils;
 import com.javiersantos.mlmanager.utils.UtilsApp;
 import com.javiersantos.mlmanager.utils.UtilsDialog;
+import com.kobakei.ratethisapp.RateThisApp;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
@@ -51,6 +54,7 @@ public class HomeActivity extends AppCompatActivity implements SearchView.OnQuer
   private static final int MY_PERMISSIONS_REQUEST_WRITE_READ = 1;
   private Context context;
   private int mCurrentTab;
+  NativeExpressAdView adView;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +67,8 @@ public class HomeActivity extends AppCompatActivity implements SearchView.OnQuer
     checkAndAddPermissions(this);
     setAppDir();
     this.context = this;
+    adView = (NativeExpressAdView)findViewById(R.id.adView);
+    AdsUtils.loadNativeAds(adView);
   }
   void initManager(){
     mMainContent = (FrameLayout)findViewById(R.id.main_content);
@@ -273,4 +279,61 @@ public class HomeActivity extends AppCompatActivity implements SearchView.OnQuer
     }
   }
 
+  @Override
+  protected void onStart() {
+    super.onStart();
+    // Custom criteria: 3 days and 5 launches
+    RateThisApp.Config config = new RateThisApp.Config(0, 3);
+    RateThisApp.init(config);
+    // Monitor launch times and interval from installation
+    RateThisApp.onStart(this);
+
+    RateThisApp.setCallback(new RateThisApp.Callback() {
+      @Override
+      public void onYesClicked() {
+        HomeActivity.this.finish();
+      }
+
+      @Override
+      public void onNoClicked() {
+        HomeActivity.this.finish();
+      }
+
+      @Override
+      public void onCancelClicked() {
+        HomeActivity.this.finish();
+      }
+    });
+
+
+  }
+
+  @Override
+  public void onBackPressed() {
+    //super.onBackPressed();
+    // If the criteria is satisfied, "Rate this app" dialog will be shown
+
+    boolean isRate = RateThisApp.showRateDialogIfNeeded(this);
+    if(!isRate){
+      finish();
+    }
+  }
+
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    adView.destroy();
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    adView.pause();
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    adView.resume();
+  }
 }

@@ -25,10 +25,12 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.content.pm.ApplicationInfo;
 
+import com.google.android.gms.ads.NativeExpressAdView;
 import com.javiersantos.mlmanager.AppInfo;
 import com.javiersantos.mlmanager.MLManagerApplication;
 import com.javiersantos.mlmanager.R;
 import com.javiersantos.mlmanager.adapters.AppAdapter;
+import com.javiersantos.mlmanager.utils.AdsUtils;
 import com.javiersantos.mlmanager.utils.AppPreferences;
 import com.javiersantos.mlmanager.utils.UtilsApp;
 import com.javiersantos.mlmanager.utils.UtilsDialog;
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private SearchView searchView;
     private static VerticalRecyclerViewFastScroller fastScroller;
     private static LinearLayout noResults;
+    NativeExpressAdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +110,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         progressWheel.setBarColor(appPreferences.getPrimaryColorPref());
         progressWheel.setVisibility(View.VISIBLE);
         new getInstalledApps().execute();
+
+        adView = (NativeExpressAdView)findViewById(R.id.adView);
+        AdsUtils.loadNativeAds(adView);
 
     }
 

@@ -1,4 +1,4 @@
-<h1 align="center">ML Manager 1.X</h1>
+<h1 align="center">APK Manager Pro 1.X</h1>
 
 <p align="center">
   <a target="_blank" href="https://plus.google.com/+JavierSantos/posts/Hpx9DVVSVhn"><img src="https://img.shields.io/badge/status-deprecated-red.svg"></a>
@@ -27,22 +27,22 @@
 * Clean data per app.
 
 ## APK Download
-### ML Manager 1.X
+### APK Manager Pro 1.X
 * [Download on GitHub](https://github.com/javiersantos/MLManager/releases)
 * [Download on F-Droid](https://f-droid.org/repository/browse/?fdid=com.javiersantos.mlmanager)
 
-### ML Manager
+### APK Manager Pro
 * [Download on Google Play](https://play.google.com/store/apps/details?id=com.javiersantos.mlmanager)
 
-### ML Manager Pro
+### APK Manager Pro Pro
 * [Download on Google Play](https://play.google.com/store/apps/details?id=com.javiersantos.mlmanagerpro) - $ 1.43 -
 
-![ML Manager](https://raw.githubusercontent.com/javiersantos/MLManager/master/Screenshots/header-basic.png)
+![APK Manager Pro](https://raw.githubusercontent.com/javiersantos/MLManager/master/Screenshots/header-basic.png)
 
-## Creating your ML Manager
+## Creating your APK Manager Pro
 All developers are welcome to use the source code to create derivate applications. There are several things I require from all developers for the moment.
 
-1. Please do not use the name ML Manager for your app.
+1. Please do not use the name APK Manager Pro for your app.
 2. Kindly do not use the standard logo as your app's logo.
 3. Please remember to read and follow the [GPL v3 license](https://github.com/javiersantos/MLManager/blob/master/LICENSE). Your derivate work must include this license.
 

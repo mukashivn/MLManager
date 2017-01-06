@@ -2,6 +2,9 @@ package com.javiersantos.mlmanager;
 
 import android.app.Application;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.javiersantos.mlmanager.utils.AppPreferences;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.Iconics;
@@ -9,6 +12,8 @@ import com.mikepenz.iconics.Iconics;
 public class MLManagerApplication extends Application {
     private static AppPreferences sAppPreferences;
     private static boolean isPro;
+    static MLManagerApplication mInstance;
+    InterstitialAd mInterstitialAd;
 
     @Override
     public void onCreate() {
@@ -22,6 +27,11 @@ public class MLManagerApplication extends Application {
 
         // Register custom fonts like this (or also provide a font definition file)
         Iconics.registerFont(new GoogleMaterial());
+
+        //Init full ads
+        initFullAds();
+
+        mInstance = this;
     }
 
     public static AppPreferences getAppPreferences() {
@@ -29,8 +39,8 @@ public class MLManagerApplication extends Application {
     }
 
     /**
-     * Retrieve ML Manager Pro
-     * @return true for ML Manager Pro, false otherwise
+     * Retrieve APK Manager Pro Pro
+     * @return true for APK Manager Pro Pro, false otherwise
      */
     public static Boolean isPro() {
         return isPro;
@@ -41,6 +51,36 @@ public class MLManagerApplication extends Application {
     }
 
     public static String getProPackage() {
-        return "com.dragon.apk.pro";
+        return "com.ikame.apk.pro";
+    }
+
+    public static MLManagerApplication getInstance(){
+        return mInstance;
+    }
+
+    void initFullAds(){
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.ads_intersitital_id));
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+            }
+        });
+
+        requestNewInterstitial();
+    }
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+            .build();
+
+        mInterstitialAd.loadAd(adRequest);
+    }
+    public void showFullAds(){
+        if(mInterstitialAd.isLoaded()){
+            mInterstitialAd.show();
+        }
     }
 }

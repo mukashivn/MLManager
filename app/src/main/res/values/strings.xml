@@ -6,10 +6,10 @@
     <string name="action_settings">Settings</string>
     <string name="action_about">About</string>
     <string name="action_share">Share</string>
-    <string name="action_apps">Installed Apps</string>
-    <string name="action_system_apps">System Apps</string>
+    <string name="action_apps">Installed</string>
+    <string name="action_system_apps">System</string>
     <string name="action_favorites">Favorites</string>
-    <string name="action_hidden_apps">Hidden Apps</string>
+    <string name="action_hidden_apps">Hidden</string>
     <string name="action_hide">Hide</string>
     <string name="action_unhide">Unhide</string>
     <string name="action_buy">Buy Pro</string>
@@ -30,11 +30,11 @@
 
     <!-- Dialogs -->
     <string name="dialog_saved">\"%s\" APK saved</string>
-    <string name="dialog_saved_description">\"%1$s\" APK has been saved into \"MLManager\" folder
+    <string name="dialog_saved_description">\"%1$s\" APK has been saved into \"APackManager\" folder
         with name: %2$s
     </string>
     <string name="dialog_saving">Saving %s APK&#8230;</string>
-    <string name="dialog_saving_description">ML Manager is saving the APK into \"MLManager\"
+    <string name="dialog_saving_description">APK Manager Pro is saving the APK into \"APackManager\"
         folder.
     </string>
     <string name="dialog_about">About %s</string>
@@ -44,7 +44,7 @@
     <string name="dialog_run">Open</string>
     <string name="dialog_run_description">Run this app now</string>
     <string name="dialog_extract">Extract</string>
-    <string name="dialog_extract_description">Extract this app under \"MLManager\" directory
+    <string name="dialog_extract_description">Extract this app under \"APackManager\" directory
     </string>
     <string name="dialog_extract_fail">Extract failed</string>
     <string name="dialog_extract_fail_description">Unable to extract this APK. Please, try to
@@ -53,7 +53,7 @@
     <string name="dialog_uninstall">Uninstall</string>
     <string name="dialog_uninstall_description">Uninstall this app right now</string>
     <string name="dialog_uninstalling">Uninstalling %s APK&#8230;</string>
-    <string name="dialog_uninstalling_description">ML Manager is uninstalling this app. Please
+    <string name="dialog_uninstalling_description">APK Manager Pro is uninstalling this app. Please
         wait.
     </string>
     <string name="dialog_cache">Remove cache</string>
@@ -74,7 +74,7 @@
     <string name="dialog_clear_data_success_description">All data for %s has been removed</string>
     <string name="dialog_root_required">Root required</string>
     <string name="dialog_root_required_description">Your device must be rooted with root permission
-        given. If you have denied access once: Go to SuperUser app to give access to ML Manager.
+        given. If you have denied access once: Go to SuperUser app to give access to APK Manager Pro.
     </string>
     <string name="dialog_reboot">Reboot is necessary to display the changes. Do you want to reboot
         now?
@@ -153,4 +153,6 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="no_data">NOT EXISTS DATA HERE</string>
+    <string name="ads_native_id">ca-app-pub-9754821671573066/3887442230</string>
+    <string name="ads_intersitital_id">ca-app-pub-9754821671573066/2689910635</string>
 </resources>

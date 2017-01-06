@@ -15,10 +15,10 @@ android {
 
     productFlavors {
         pro {
-            applicationId = "com.dragon.apk.pro"
+            applicationId = "com.ikame.apk.pro"
         }
         basic {
-            applicationId = "com.javiersantos.mlmanager"
+            applicationId = "com.ikame.apk.pro"
         }
     }
 
@@ -35,6 +35,10 @@ android {
 
     lintOptions {
         disable 'MissingTranslation'
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
     }
 
     packagingOptions {
@@ -72,5 +76,8 @@ dependencies {
     compile 'com.roughike:bottom-bar:2.0.2'
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.google.firebase:firebase-ads:10.0.1'
+    compile 'io.github.kobakei:ratethisapp:1.1.0'
 
 }
+apply plugin: 'com.google.gms.google-services'

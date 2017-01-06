@@ -77,7 +77,7 @@ public class FavouriteAppFragment extends Fragment{
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    init();
+   // init();
   }
   private void init() {
     rvListApp = new ArrayList<>();
@@ -88,6 +88,16 @@ public class FavouriteAppFragment extends Fragment{
     rvInstallAppView.setLayoutManager(layoutManager);
     this.appPreferences = MLManagerApplication.getAppPreferences();
     getInstallApp();
+  }
+
+  private void refresh(){
+    init();
+  }
+
+  @Override
+  public void onResume() {
+    super.onResume();
+    refresh();
   }
 
   private void getInstallApp() {
@@ -193,6 +203,8 @@ public class FavouriteAppFragment extends Fragment{
       progressBar.setVisibility(View.GONE);
       if(rvListApp.size()==0){
         mNodataView.setVisibility(View.VISIBLE);
+      }else {
+        mNodataView.setVisibility(View.GONE);
       }
       rvInstallAppAdapter.notifyDataSetChanged();
     }

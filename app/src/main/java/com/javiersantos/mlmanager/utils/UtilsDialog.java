@@ -129,7 +129,7 @@ public class UtilsDialog {
 
         MaterialDialog.Builder materialBuilder = new MaterialDialog.Builder(context)
                 .title(context.getResources().getString(R.string.action_buy) + " (" + context.getResources().getString(R.string.action_buy_description) + ")")
-                .icon(ContextCompat.getDrawable(context, R.mipmap.ic_launcher_pro))
+                .icon(ContextCompat.getDrawable(context, R.mipmap.icon))
                 .adapter(adapter, new MaterialDialog.ListCallback() {
                     @Override
                     public void onSelection(MaterialDialog materialDialog, View view, int i, CharSequence charSequence) {}

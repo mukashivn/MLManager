@@ -35,8 +35,9 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
     private Toolbar toolbar;
     private Context context;
 
-    private Preference prefVersion, prefLicense, prefDeleteAll, prefDefaultValues, prefNavigationBlack, prefCustomPath;
-    private AmbilWarnaPreference prefPrimaryColor, prefFABColor;
+    //private Preference prefVersion, prefLicense,prefNavigationBlack;
+    private Preference prefDeleteAll, prefDefaultValues,  prefCustomPath;
+    //private AmbilWarnaPreference prefPrimaryColor, prefFABColor;
     private ListPreference prefCustomFilename, prefSortMode;
     private DirectoryChooserFragment chooserDialog;
 
@@ -50,13 +51,13 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         prefs.registerOnSharedPreferenceChangeListener(this);
 
-        prefVersion = findPreference("prefVersion");
-        prefLicense = findPreference("prefLicense");
-        prefPrimaryColor = (AmbilWarnaPreference) findPreference("prefPrimaryColor");
-        prefFABColor = (AmbilWarnaPreference) findPreference("prefFABColor");
+       // prefVersion = findPreference("prefVersion");
+       // prefLicense = findPreference("prefLicense");
+       // prefPrimaryColor = (AmbilWarnaPreference) findPreference("prefPrimaryColor");
+       // prefFABColor = (AmbilWarnaPreference) findPreference("prefFABColor");
         prefDeleteAll = findPreference("prefDeleteAll");
         prefDefaultValues = findPreference("prefDefaultValues");
-        prefNavigationBlack = findPreference("prefNavigationBlack");
+       // prefNavigationBlack = findPreference("prefNavigationBlack");
         prefCustomFilename = (ListPreference) findPreference("prefCustomFilename");
         prefSortMode = (ListPreference) findPreference("prefSortMode");
         prefCustomPath = findPreference("prefCustomPath");
@@ -65,7 +66,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
 
         String versionName = UtilsApp.getAppVersionName(context);
         int versionCode = UtilsApp.getAppVersionCode(context);
-
+        /*
         prefVersion.setTitle(getResources().getString(R.string.app_name) + " v" + versionName + " (" + versionCode + ")");
         prefVersion.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
@@ -84,6 +85,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
                 return false;
             }
         });
+        */
 
         // prefCustomFilename
         setCustomFilenameSummary();
@@ -110,7 +112,7 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
                 return true;
             }
         });
-
+        /*
         // prefDefaultValues
         prefDefaultValues.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
@@ -120,13 +122,13 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
                 return true;
             }
         });
-
+        */
         // prefCustomPath
         prefCustomPath.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 final DirectoryChooserConfig chooserConfig = DirectoryChooserConfig.builder()
-                        .newDirectoryName("ML Manager APKs")
+                        .newDirectoryName("A Pack Manager")
                         .allowReadOnlyDirectory(false)
                         .allowNewDirectoryNameModification(true)
                         .initialDirectory(appPreferences.getCustomPath())
@@ -174,13 +176,14 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
                 getWindow().setNavigationBarColor(appPreferences.getPrimaryColorPref());
             }
         }
-
+        /*
         // Pre-Lollipop devices
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             prefPrimaryColor.setEnabled(false);
             prefNavigationBlack.setEnabled(false);
             prefNavigationBlack.setDefaultValue(true);
         }
+        */
     }
 
     private void setCustomFilenameSummary() {

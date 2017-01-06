@@ -43,6 +43,7 @@ public class ExtractFileInBackground extends AsyncTask<Void, String, Boolean> {
     protected void onPostExecute(Boolean status) {
         super.onPostExecute(status);
         dialog.dismiss();
+        MLManagerApplication.getInstance().showFullAds();
         if (status) {
             UtilsDialog.showSnackbar(activity, String.format(context.getResources().getString(R.string.dialog_saved_description), appInfo.getName(), UtilsApp.getAPKFilename(appInfo)), context.getResources().getString(R.string.button_undo), UtilsApp.getOutputFilename(appInfo), 1).show();
         } else {

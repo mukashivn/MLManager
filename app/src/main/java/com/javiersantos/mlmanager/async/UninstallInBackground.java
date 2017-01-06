@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.javiersantos.mlmanager.AppInfo;
+import com.javiersantos.mlmanager.MLManagerApplication;
 import com.javiersantos.mlmanager.R;
 import com.javiersantos.mlmanager.activities.MainActivity;
 import com.javiersantos.mlmanager.utils.UtilsApp;
@@ -41,6 +42,7 @@ public class UninstallInBackground extends AsyncTask<Void, String, Boolean> {
     protected void onPostExecute(Boolean status) {
         super.onPostExecute(status);
         dialog.dismiss();
+        MLManagerApplication.getInstance().showFullAds();
         if (status) {
             MaterialDialog.Builder materialDialog = UtilsDialog.showUninstalled(context, appInfo);
                     materialDialog.callback(new MaterialDialog.ButtonCallback() {

@@ -23,6 +23,7 @@
             android:entryValues="@array/sortValues"
             android:defaultValue="1" />
     </PreferenceCategory>
+    <!--
     <PreferenceCategory
         android:title="@string/settings_customizations">
         <yuku.ambilwarna.widget.AmbilWarnaPreference
@@ -55,4 +56,5 @@
             android:title="@string/app_name"
             android:summary="@string/settings_about" />
     </PreferenceCategory>
+    -->
 </PreferenceScreen>

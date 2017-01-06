@@ -64,7 +64,7 @@ public class HiddenAppFragment extends Fragment {
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    init();
+    //init();
   }
 
   @Override
@@ -82,6 +82,16 @@ public class HiddenAppFragment extends Fragment {
     rvInstallAppView.setLayoutManager(layoutManager);
     this.appPreferences = MLManagerApplication.getAppPreferences();
     getInstallApp();
+  }
+
+  private void refresh(){
+    init();
+  }
+
+  @Override
+  public void onResume() {
+    super.onResume();
+    refresh();
   }
 
   private void getInstallApp() {

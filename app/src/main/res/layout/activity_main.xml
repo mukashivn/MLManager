@@ -7,13 +7,20 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
+    <LinearLayout android:id="@+id/ads_layout"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@+id/toolbar"
+    >
+        <include layout="@layout/layout_ads"/>
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
         android:layout_above="@+id/bottomBar"
+        android:layout_below="@id/ads_layout"
 
     >
         <com.pnikosis.materialishprogress.ProgressWheel
@@ -71,7 +78,7 @@
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_alignParentBottom="true"
-        app:bb_tabXmlResource="@xml/bottom_bar"
         app:bb_behavior="underNavbar"
+        app:bb_tabXmlResource="@xml/bottom_bar"
     />
 </RelativeLayout>
